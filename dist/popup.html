@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Popup</title>
+	<!-- <link rel="stylesheet" type="text/css" href="assets/css/normalize.css"> -->
+	<link rel="stylesheet" type="text/css" href="assets/css/popup.css">
+</head>
+<body>
+
+	<div id="overlay_loading">
+		<img src="assets/svg/loading.svg">
+	</div>
+
+	<div id="notif" class="notif">
+		Some message here
+	</div>
+
+	<form id="search_form" class="search" tabindex="1">
+		<input id="search_input" type="text" name="Search" placeholder="e.g 'Naruto'">
+		<button id="search_button"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg></button>
+	</form>
+
+	<div class="recent_search">
+		<header>
+			<h2>Recent</h2>
+			<i id="clear_recent"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M5 13h14v-2H5v2zm-2 4h14v-2H3v2zM7 7v2h14V7H7z"/><path d="M0 0h24v24H0z" fill="none"/></svg></i>
+		</header>
+
+		<div class="recent_wrap">
+		</div>
+	</div>
+
+	<div class="search_results">
+	</div>
+
+
+
+	<div class="anime">
+		<div class="row-1">
+			<div class="col-left">
+				<h1></h1>
+				<div class="genre">
+				</div>
+				<div class="id">Mal ID: <span></span></div>
+				<div class="type">Type: <span></span></div>
+				<div class="source">Source: <span></span></div>
+				<div class="aired">Aired: <span></span></div>
+				<div class="studios">Studio(s): <span></span></div>
+				<div class="broadcast">Broadcast: <span></span></div>
+				<div class="premiered">Premiered: <span></span></div>
+
+
+				<h2>Synopsis</h2>
+				<p></p>
+			</div>
+
+			<div class="col-right">
+				<img class="img" src="" alt="">
+				<div class="badge airing">airing</div>
+
+				<div class="row-1-1">
+					<div class="score"><span></span></div>
+
+					<div class="rank">
+						# <span></span>
+					</div>
+				</div>
+
+				<div class="episodes">
+					<span></span>  episode(s)
+				</div>
+
+				<div class="rating"></div>
+
+
+				<div data-id="" title="Open in MyAnimeList" class="anime_cta"><svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></div>
+			</div>
+		</div>
+
+		<div class="row-2">
+
+		</div>
+	</div>
+
+</body>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/script.js"></script>
+</html>

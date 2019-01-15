@@ -1,0 +1,23 @@
+{
+	"manifest_version": 2,
+
+	"name": "Jikan",
+	"description": "Fetch Anime information from MyAnimeList",
+	"version": "1.0.1",
+	"homepage_url": "https://jikan.moe",
+	"icons": {
+		"16": "icon_16.png",
+		"48": "icon_48.png",
+		"128": "icon_128.png"
+	},
+	"permissions": [
+		"tabs",
+		"https://myanimelist.net/",
+		"https://*.jikan.moe/",
+		"https://api.jikan.moe/"
+	],
+	"browser_action": {
+		"default_title": "Search for an Anime",
+		"default_popup": "popup.html"
+	}
+}

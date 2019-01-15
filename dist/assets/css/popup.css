@@ -1,0 +1,430 @@
+:root {
+	--dark-primary-color: #303F9F;
+	--light-primary-color: #C5CAE9;
+	--primary-color: #3F51B5;
+	--glyphs: #FFFFFF;
+	--accent-color: #607D8B;
+	--primary-text: #212121;
+	--secondary-text: #757575;
+	--divider-color: #BDBDBD;
+}
+
+
+* {
+	outline: none;
+}
+
+a {
+	color: var(--primary-color);
+	text-decoration: none;
+}
+
+body {
+    background: var(--primary-color);
+    min-width: 500px;
+    min-height: 100px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 2em;
+    transition: background 0.5s ease;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+	cursor: pointer;
+	background: var(--dark-primary-color);
+	border: none;
+}
+
+button > img {
+	height: 20px;
+	width: 20px;
+}
+
+.search {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 0 50px 20px rgba(0,0,0,0.2);
+    position: relative;
+    height: 50px;
+    width: 100%;
+
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+	background: var(--glyphs);
+}
+
+.search.focus {
+	  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.search > input[type=text] {
+	background: var(--glyphs);
+	border: none;
+	padding: 1em 0.5em;
+	width: 100%;
+	color: var(--accent-color);
+	font-size: .9rem;
+}
+.search > input[type=text]:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px var(--glyphs) inset;
+}
+
+.search > button {
+	background: var(--glyphs);
+	fill: var(--accent-color);
+}
+
+
+.recent_search {
+    align-self: flex-start;
+    width: 100%;
+    margin-top: 2em;
+}
+	.recent_search > header {
+	    display: flex;
+	    display: grid;
+	    grid-template-columns: 90% 10%;
+	}
+	.recent_search > header h2 {
+	    color: var(--glyphs);
+	    font-size: .75rem;
+	    text-transform: uppercase;
+	    line-height: 3;
+	}
+	.recent_search > header i {
+	    align-self: center;
+	    justify-self: end;
+	    cursor: pointer;
+	}
+		.recent_search > header i svg {
+			fill: var(--light-primary-color);
+		}
+
+	.recent_search .recent {
+	    display: grid;
+	    grid-template-columns: 90% 10%;
+	    background: var(--glyphs);
+	    height: 50px;
+	    border-radius: 4px;
+	    overflow: hidden;
+	    background: var(--dark-primary-color);
+	    cursor: pointer;
+	    transition: transform 0.5s ease;
+	    margin-bottom: 1em;
+	}
+		.recent_search .recent.clear {
+			transform: translateX(150%);
+		}
+		.recent_search .recent label {
+		    display: flex;
+		    justify-self: flex-start;
+		    align-self: center;
+		    padding: 0.5em;
+		    color: var(--light-primary-color);
+		    cursor: pointer;
+		    font-size: .9rem;
+		    height: 100%;
+		    width: 100%;
+		    align-items: center;
+		}
+		.recent_search .recent i {
+		    align-items: center;
+		    justify-content: center;
+		    display: flex;
+		    width: 100%;
+		}
+		.recent_search .recent i svg {
+			fill: var(--light-primary-color);
+		}
+
+
+.notif {
+    min-width: 50%;
+    background: #fff;
+    display: block;
+    margin-bottom: 1em;
+    padding: 1em;
+    box-sizing: border-box;
+    justify-self: center;
+    color: var(--accent-color);
+    line-height: 1.25;
+    display: none;
+}
+
+
+#overlay_loading {
+	position: absolute;
+	height: 100%; max-height: 300px; width: 100%;
+	background: rgba(0,0,0,.6);
+	display: block;
+	z-index: 9999;
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+
+.anime {
+	display: none;
+	opacity: 0;
+	background: var(--glyphs);
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	padding: 1em;
+	border-radius: 4px;
+	margin-top: 2em;
+
+	grid-template-rows: 2;
+
+	transition: opacity 0.5s ease 0.5s;
+}
+
+.anime .row-1 {
+	display: grid;
+	grid-template-columns: 60% 40%;
+}
+
+
+.anime .col-right {
+    display: flex;
+    flex-direction: start;
+    flex-direction: column;
+    position: relative;
+}
+	.anime .badge {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    background: #fff;
+	    height: 20px;
+	    margin: 0.25em;
+	    min-width: 50px;
+	    font-size: .7rem;
+	    display: none;
+	    justify-content: center;
+	    align-items: center;
+	    text-transform: uppercase;
+	    cursor: default;
+	}
+		.anime .badge.airing {
+			background: var(--accent-color);
+			color: var(--glyphs);
+		}
+
+.anime .row-1-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    height: 40px;
+    margin: 1px 0;
+    grid-column-gap: 1px;
+}
+
+.anime .score,
+.anime .rank {
+    font-size: 1rem;
+    color: #fff;
+    background: #1E439B;
+    background: var(--dark-primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.anime .score > span,
+.anime .rank > span {
+	font-weight: bold;
+}
+
+.anime .rank > span{
+	margin-left: 0.25em;
+}
+
+.anime h1 {
+	font-size: 2em;
+	line-height: 1;
+	margin: 0;
+	color: var(--primary-text);
+}
+
+.anime h2 {
+	color: var(--primary-text);
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    margin-top: 2em;
+}
+
+.anime p {
+    line-height: 1.5;
+    font-size: .7rem;
+    padding-right: 1em;
+    text-align: justify;
+    margin: 0;
+    color: var(--primary-text);
+}
+
+.anime .genre {
+    padding: 0.25em 0 1em 0;
+}
+
+.anime .genre > label {
+    padding: 0.25em;
+    background: var(--primary-color);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: .7rem;
+    margin: 0.05em;
+    display: inline-block;
+}
+
+.anime .img {
+	height: 238px;
+	width: 100%;
+	object-fit: cover;
+}
+
+
+
+.anime .source,
+.anime .id,
+.anime .aired,
+.anime .type,
+.anime .premiered,
+.anime .broadcast,
+.anime .studios {
+	margin-bottom: 0.5em;
+	color: var(--primary-text);
+}
+
+.anime .source > span,
+.anime .id > span,
+.anime .aired > span,
+.anime .type > span,
+.anime .premiered > span,
+.anime .broadcast > span,
+.anime .studios > span {
+	color: var(--secondary-text);
+	font-weight: bold;
+}
+
+.anime .episodes {
+    background: var(--dark-primary-color);
+    height: 30px;
+    font-size: 1rem;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.anime .episodes > span {
+	font-weight: bold;
+	margin-right: 0.25em;
+}
+
+.anime .rating {
+    color: var(--divider-color);
+    font-size: .6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+}
+
+.anime .anime_cta {
+    display: flex;
+    background: var(--accent-color);
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    justify-self: flex-end;
+    align-self: flex-end;
+    justify-content: a;
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+	box-shadow: 2px 3px 3px 0px rgba(41, 41, 41, .3);
+}
+
+.anime.fadeIn {
+	opacity: 1;
+}
+
+.search_results {
+	display: block;
+	transition: opacity 0.5s ease 0.5s;
+}
+.search_results.fadeIn {
+	opacity: 1;
+}
+
+.result {
+	display: grid;
+	grid-template-columns: 20% 15% 55% 10%;
+	margin-bottom: 1em;
+	border-radius: 4px;
+	overflow: hidden;
+	width: 100%;
+	
+	background: var(--accent-color);
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.result:first-child {
+	margin-top: 2em;
+}
+	.result .info {
+	    display: grid;
+	    grid-template-rows: 1fr 1fr;
+	}
+		.result .info label {
+		    display: grid;
+		    grid-template-columns: 40% 60%;
+		}
+			.result .info label .icon {
+			    background: var(--dark-primary-color);
+			    display: flex;
+			    justify-content: center;
+			    align-items: center;
+			}
+				.result .info label .icon svg {
+				    fill: var(--glyphs);
+				}
+			.result .info label span {
+			    display: flex;
+			    background: var(--primary-color);
+			    justify-content: center;
+			    align-items: center;
+			    color: var(--glyphs);
+			    font-weight: bold;
+			}
+	.result .synopsis {
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    background: var(--glyphs)
+	}
+		.result .synopsis p {
+		    margin: 0;
+		    padding: 1em;
+		    padding: 0 1em;
+		    line-height: 1.25;
+		    color: var(--primary-text);
+		}
+	.result .cta_more {
+	    cursor: pointer;
+	    background: var(--accent-color);
+	    border: none;
+	}
+		.result .cta_more svg {
+		    fill: var(--light-primary-color);
+		    font-size: 2rem;
+		    height: 25px;
+		    width: 25px;
+		}
